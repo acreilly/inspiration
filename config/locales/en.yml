@@ -3,10 +3,10 @@
 
 en:
   spree:
-    new_press_post: "New press post"
-    back_to_press_list: "Back to press list"
+    new_inspiration_post: "New inspiration post"
+    back_to_inspiration_list: "Back to inspiration list"
   activerecord:
     models:
-      spree/press_post:
-        one: Press post
-        other: Press posts
+      spree/inspiration_post:
+        one: inspiration post
+        other: inspiration posts

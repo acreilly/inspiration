@@ -3,49 +3,49 @@ Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
 */
 
-#press_post_container{
+#inspiration_post_container{
   margin-top: 20px;
 }
-ul#press_posts{
+ul#inspiration_posts{
   list-style: none;
   margin-left: 20px;
 }
-#press_posts li{
+#inspiration_posts li{
   margin: 20px 0;
 }
 
-#press_posts .press_post_title{
+#inspiration_posts .inspiration_post_title{
   margin-bottom: 10px;
 }
 
-#press_posts .press_post_title h3{
+#inspiration_posts .inspiration_post_title h3{
   margin-bottom: 5px;
 }
-#press_posts .press_post_title .press_post_date{
+#inspiration_posts .inspiration_post_title .inspiration_post_date{
   font-size: 12px;
   font-style: italic;
 }
 
-#press_posts .press_post_body{
+#inspiration_posts .inspiration_post_body{
   width: 100%;
 }
 
-#press_posts .press_post_body p{
+#inspiration_posts .inspiration_post_body p{
   font-size: 15px;
 }
 
-#press_posts_sidebar{
+#inspiration_posts_sidebar{
   margin-top: 20px;
 }
-#press_posts_sidebar ul{
+#inspiration_posts_sidebar ul{
   list-style: none;
 }
 
-#press_posts_sidebar ul li{
+#inspiration_posts_sidebar ul li{
   margin: 5px 0;
 }
 
-.press_post_image a img{
+.inspiration_post_image a img{
   width: 100%;
   height: auto;
 }

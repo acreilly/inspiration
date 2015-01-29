@@ -1,0 +1,17 @@
+<% content_for :sidebar do %>
+  <%= render :partial => 'spree/inspiration_posts/inspiration_post_sidebar' %>
+<% end %>
+<div id="inspiration_post_container" class="columns twelve omega">
+  <% if !@inspiration_posts.empty? %>
+    <ul id="inspiration_posts">
+      <% @inspiration_posts.each do |inspiration_post| %>
+        <li id="<%= inspiration_post.title %>">
+          <%= render :partial => 'spree/inspiration_posts/inspiration_post', :locals => {:inspiration_post => inspiration_post} %>
+        </li>
+      <% end %>
+    </ul>
+    <%= paginate @inspiration_posts %>
+  <% else %>
+    <p id="no_entries"><%= Spree.t(:no_inspiration_posts) %></p>
+  <% end %>
+</div>

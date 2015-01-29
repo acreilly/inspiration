@@ -1,0 +1,10 @@
+<div id="inspiration_posts_sidebar">
+  <h2>Inspiration</h2>
+  <ul>
+  <% @inspiration_posts.each do |inspiration_post| %>
+  <li>
+  <%= link_to inspiration_post.title, "##{inspiration_post.title}" %>
+  </li>
+  <% end %>
+  </ul>
+</div>

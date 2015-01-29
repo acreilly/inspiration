@@ -1,0 +1,53 @@
+<% content_for :page_title do %>
+<%= Spree.t(:inspiration_posts) %>
+<% end %>
+
+<% content_for :page_actions do %>
+<li><%= button_link_to Spree.t(:new_inspiration_post), new_object_url, :icon => 'plus' %></li>
+<% end %>
+<%= form_tag(admin_inspiration_post_settings_path, :method => :put) do %>
+<%= check_box_tag('settings[inspiration_summarized]','yes' , Spree::Config.inspiration_summarized) %>
+<label><%= t('enable_inspiration_post_summarization') %></label>
+<br>
+<%= button t('submit_settings') %>
+<% end %>
+<br>
+<% if @inspiration_posts.any? %>
+<table class="index">
+  <colgroup>
+  <col style="width: 15%">
+  <col style="width: 30%">
+  <col style="width: 35%">
+  <col style="width: 5%">
+  <col style="width: 15%">
+</colgroup>
+<thead>
+  <tr>
+    <th class="title"><%= Spree.t(:title) %></th>
+    <th class="image"><%= Spree.t(:image) %></th>
+    <th class="actions"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @inspiration_posts.each do |inspiration_post| %>
+  <tr class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id inspiration_post %>">
+    <td class="align-center"><%= inspiration_post.title %></td>
+    <td class="align-center"><%= link_to image_tag(inspiration_post.inspiration_post_image.attachment.url(:small)), inspiration_post.inspiration_post_image.attachment.url(:large) unless inspiration_post.inspiration_post_image.nil? %></td>
+    <td class="actions">
+      <%= link_to_edit inspiration_post, :no_text => true %>
+      <%= link_to_delete inspiration_post, :no_text => true %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+<% else %>
+<div class="alpha twelve columns no-objects-found">
+  <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/inspiration_post')) %>,
+  <%= link_to Spree.t(:add_one), spree.new_admin_inspiration_post_path %>!
+</div>
+<% end %>
+

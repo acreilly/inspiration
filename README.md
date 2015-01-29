@@ -1,21 +1,21 @@
-SpreePress
+SpreeInspiration
 
-Spree extension that adds a press page to your spree store.
+Spree extension that adds a inspiration page to your spree store.
 
 Installation
 ------------
 
-Add spree_press to your Gemfile:
+Add spree_inspiration to your Gemfile:
 
 ```ruby
-gem 'spree_press', :github => "acreilly/spree_press", branch: "2-4-stable"
+gem 'spree_inspiration', :github => "acreilly/spree_inspiration", branch: "2-4-stable"
 ```
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
 bundle
-bundle exec rails g spree_press:install
+bundle exec rails g spree_inspiration:install
 ```
 
 Testing
@@ -30,5 +30,5 @@ bundle exec rake
 
 Copyright (c) 2015 Allison Reilly, released under the New BSD License
 =======
-# spree_press
-Press page for Spree
+# spree_inspiration
+Inspiration page for Spree

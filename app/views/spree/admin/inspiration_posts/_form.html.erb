@@ -1,0 +1,48 @@
+
+<div class="row">
+  <div class="alpha ten columns">
+
+    <%= form.field_container :title do %>
+      <%= form.label :title, Spree.t(:title) %> <span class="required">*</span><br />
+      <%= form.text_field :title, :class => 'fullwidth title' %>
+      <%= form.error_message_on :title %>
+    <% end %>
+
+    <%= form.field_container :url do %>
+      <%= form.label :url, Spree.t(:url) %>
+      <%= form.text_field :url, :class => 'fullwidth url' %>
+    <% end %>
+
+    <%= form.field_container :body do %>
+  <%= form.label :body %> <span class="required">*</span><br />
+  <%= form.text_area :body, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
+  <%= form.error_message_on :body %>
+<% end %>
+
+  </div>
+
+  <div class="omega six columns">
+
+    <%= field_set_tag Spree.t(:inspiration_post_featured_image) do %>
+      <% @inspiration_post.build_inspiration_post_image unless @inspiration_post.inspiration_post_image %>
+
+      <%= form.fields_for :inspiration_post_image do |inspiration_post_image_field| %>
+        <%= form.field_container :inspiration_post_image_attachment do %>
+          <% unless @inspiration_post.inspiration_post_image.new_record? %>
+            <div class="inspiration_post_image_thumbnail">
+              <%= link_to image_tag(@inspiration_post.inspiration_post_image.attachment.url(:mini)), @inspiration_post.inspiration_post_image.attachment.url(:large) %>
+              <%= @inspiration_post.inspiration_post_image.attachment_file_name %><br/>
+            </div>
+          <% end %>
+          <%= inspiration_post_image_field.file_field :attachment %>
+        <% end %>
+
+        <%= form.field_container :inspiration_post_image_alt do %>
+          <%= inspiration_post_image_field.label :alt, Spree.t(:alt_text) %><br/>
+          <%= inspiration_post_image_field.text_field :alt %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

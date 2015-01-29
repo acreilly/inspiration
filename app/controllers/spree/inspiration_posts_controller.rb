@@ -1,7 +1,7 @@
-class Spree::PressPostsController < Spree::StoreController
+class Spree::InspirationPostsController < Spree::StoreController
   before_filter :init_pagination, :only => [:index]
   def index
-    @press_posts = Spree::PressPost.page(@pagination_page).per(@pagination_per_page)
+    @inspiration_posts = Spree::InspirationPost.page(@pagination_page).per(@pagination_per_page)
   end
 
    private

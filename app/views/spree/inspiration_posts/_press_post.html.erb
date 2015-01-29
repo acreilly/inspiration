@@ -1,0 +1,31 @@
+<div class="inspiration_post">
+  <div class="inspiration_post_title">
+    <h3>
+      <% if inspiration_post.url.nil? %>
+      <%= inspiration_post.title %>
+      <% else %>
+      <%= link_to inspiration_post.title, inspiration_post.url %>
+      <% end %>
+    </h3>
+    <span class="inspiration_post_date"><%= inspiration_post.created_at.strftime("Posted on %B %d %Y") %></span>
+  </div>
+  <% unless inspiration_post.inspiration_post_image.nil? %>
+  <div class="inspiration_post_image">
+    <%= link_to image_tag(inspiration_post.inspiration_post_image.attachment.url(:large)), inspiration_post.inspiration_post_image.attachment.url(:large) %>
+  </div>
+  <% end %>
+  <div class="inspiration_post_body">
+    <% if Spree::Config.inspiration_summarized %>
+    <% if inspiration_post.url.nil? %>
+    simple_format(inspiration_post.body)
+    <% else %>
+    <p>
+      <%= inspiration_post.post_summary %>
+      <%= link_to "Read more", inspiration_post.url %>
+    </p>
+    <% end %>
+    <% else %>
+    <%= simple_format(inspiration_post.body) %>
+    <% end %>
+  </div>
+</div>

@@ -1,8 +1,8 @@
-module SpreePress
+module SpreeInspiration
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'spree_press'
+    engine_name 'spree_inspiration'
 
     # use rspec for tests
     config.generators do |g|
@@ -10,9 +10,9 @@ module SpreePress
     end
 
 
-initializer "spree.press.preferences", :before => :load_config_initializers do |app|
+initializer "spree.inspiration.preferences", :before => :load_config_initializers do |app|
       Spree::AppConfiguration.class_eval do
-        preference :press_summarized, :boolean, default: true
+        preference :inspiration_summarized, :boolean, default: true
       end
     end
     def self.activate
